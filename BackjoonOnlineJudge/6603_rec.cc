@@ -16,8 +16,11 @@ void solve(int idx, int cnt){
         return;
     }
  
+    //idx의 숫자를 선택하는 경우
     sel[cnt] = s[idx];
     solve(idx+1, cnt+1);
+    
+    //선택하지 않는 경우
     solve(idx+1, cnt);
  
 }
