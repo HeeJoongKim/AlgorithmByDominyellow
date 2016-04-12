@@ -1,0 +1,28 @@
+#include <stdio.h>
+ 
+//j번째 피보나치 구할 때 F(i)가 호출되는 횟수
+int d[2][100];
+ 
+int main(void){
+    int testcase;
+ 
+	//초기화
+    d[0][0] = d[1][1] = 1;
+    d[0][1] = d[1][0] = 0;
+ 
+    for(int i=0; i<2; i++){
+        for(int j=2; j<100; j++){
+            d[i][j] = d[i][j-2] + d[i][j-1];
+        }
+    }
+ 
+    scanf("%d", &testcase);
+ 
+    while(testcase--){
+        int N;
+        scanf("%d", &N);
+ 
+        printf("%d %d\n", d[0][N], d[1][N]);
+    }
+    return 0;
+}
